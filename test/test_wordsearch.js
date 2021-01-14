@@ -90,4 +90,52 @@ describe("#wordSearch()", function() {
     assert.isTrue(result);
   });
 
+  it("should return true if the word is present and diagonal", function() {
+    const result = wordSearch([
+      ['S', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['D', 'E', 'E', 'F', 'N', 'I', 'E', 'S'],
+      ['Y', 'F', 'I', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'M', 'J', 'N', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'S', 'F', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'L', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'D'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'SEINFELD')
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present and diagonal and reversed", function() {
+    const result = wordSearch([
+      ['D', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['X', 'L', 'E', 'F', 'N', 'I', 'E', 'S'],
+      ['Y', 'F', 'E', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'M', 'J', 'F', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'S', 'N', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'I', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'E', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'SEINFELD')
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present and diagonal and reversed, when there are more rows than columns", function() {
+    const result = wordSearch([
+      ['D', 'W', 'C'],
+      ['X', 'L', 'E'],
+      ['Y', 'F', 'E'],
+      ['H', 'M', 'J'],
+      ['W', 'H', 'C'],
+      ['T', 'F', 'R'],
+      ['U', 'A', 'T'],
+      ['O', 'D', 'C'],
+      ['E', 'Z', 'K'],
+    ], 'CAT')
+
+    assert.isTrue(result);
+  });
+
 });
